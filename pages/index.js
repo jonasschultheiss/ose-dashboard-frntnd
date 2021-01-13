@@ -1,65 +1,59 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Header from '@components/header';
+import Modal from '@components/modal';
+import Scene from '@components/scene';
+import filterByAssetId from '@utils/filterByAssetId';
+import useAssets from '@utils/useAssets';
+import useModal from '@utils/useModal';
+import Head from 'next/head';
+import DebugStats from 'react-fps-stats';
 
-export default function Home() {
+export default function Index() {
+  const { assets, isLoading, isError } = useAssets();
+  const { openModal, closeModal, open, asset } = useModal();
+
+  const assetSelected = (id) => {
+    if (!open || !isLoading) {
+      openModal(filterByAssetId(assets, id));
+    }
+  };
+
+  const assetUnselected = () => {
+    closeModal();
+  };
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>OSE Dashboard</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+      <Header />
+      {open ? <Modal asset={asset} unselect={assetUnselected} isLoading={isLoading} /> : null}
+      <DebugStats />
+      <Scene assetSelected={assetSelected} />
+    </>
+  );
 }
+
+// export async function getServerSideProps(context) {
+//   // ${process.env.API_BASE_URL}
+//   const res = await fetch(`https://api.iiot.endress.com/v1/instrumentations?per_page=50&include=pictures%2C%20specifications%2C%20status`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Basic ${process.env.API_AUTHORIZATION}`,
+//       'Api-Key': process.env.API_KEY,
+//     },
+//   });
+//   const data = await res.json();
+
+//   if (!data) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+
+//   return {
+//     props: { assets: data.instrumentations },
+//   };
+// }
