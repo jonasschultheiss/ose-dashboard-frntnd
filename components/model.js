@@ -342,19 +342,23 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.Promag_100_5H1B40.geometry}
         position={[1.9175504446029663, 8.795729637145996, 4.786312103271484]}
         rotation={[0.0000028863302957, 1.5399781938370805, 1.5707933801043894]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={76691}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.PMP23.geometry}
         position={[1.9310983419418335, 8.698423385620117, 2.602354049682617]}
         rotation={[-1.5666776610726698, 0.5861051210142489, 3.1341464891256563]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={76687}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 0.002']}
