@@ -5,7 +5,7 @@ import filterByAssetId from '@utils/filterByAssetId';
 import useAssets from '@utils/useAssets';
 import useModal from '@utils/useModal';
 import Head from 'next/head';
-import DebugStats from 'react-fps-stats';
+// import DebugStats from 'react-fps-stats';
 
 export default function Index() {
   const { assets, isLoading, isError } = useAssets();
@@ -29,7 +29,7 @@ export default function Index() {
       </Head>
       <Header />
       {open ? <Modal asset={asset} unselect={assetUnselected} isLoading={isLoading} /> : null}
-      <DebugStats />
+      {/* <DebugStats /> */}
       <Scene assetSelected={assetSelected} />
     </>
   );

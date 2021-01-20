@@ -4,7 +4,7 @@ export default function Asset(props) {
   return (
     <>
       <mesh
-        onPointerDown={() => {
+        onDoubleClick={() => {
           assetSelected(id);
         }}
         material={material}

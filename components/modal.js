@@ -14,8 +14,8 @@ export default function modal({ unselect, asset }) {
   };
 
   return (
-    <motion.div initial="hidden" animate="visible" variants={variants} className="flex flex-row justify-end z-30 absolute w-screen p-8 md:p-16">
-      <div className="border-2 rounded-md w-1/3 border-gray-900 p-4 ">
+    <motion.div initial="hidden" animate="visible" variants={variants} className="z-20 absolute w-screen h-screen p-8 md:p-16" onClick={() => unselect()}>
+      <div className="border-2 rounded-md w-1/3 border-gray-900 p-4 float-right">
         <ModalTitle tag={tag.name} manufacturer={product.manufacturer} unselect={unselect} code={status.code} />
         <AttributeTitle title={'Product'} />
         <Attribute name={'Name'} value={product.name} />
