@@ -1,14 +1,16 @@
+import moment from 'moment';
 import Image from 'next/image';
 
-export default function ModalTitle({ tag, manufacturer, unselect, code }) {
+export default function ModalTitle({ tag, manufacturer, unselect, code, last_seen }) {
   return (
     <div className="flex flex-row justify-between">
       <div className="flex flex-row">
         <div className="flex flex-row">
-          <Image alt="Namur icon" src={`/${code}.svg`} width="45" height="45" />
+          <Image className="w-full" alt="Namur icon" src={`/${code}.svg`} width="50" height="50" />
           <div className="flex flex-col ml-4">
             <p className="text-xl font-semibold">{tag}</p>
-            <p className="text-lg font-medium">{manufacturer}</p>
+            <p className="text-md font-medium">{manufacturer}</p>
+            {last_seen ? <p className="text-md font-medium">Last seen: {moment(new Date(last_seen)).fromNow()}</p> : null}
           </div>
         </div>
       </div>

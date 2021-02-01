@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 
 export default function modal({ unselect, asset }) {
   const { id, serial_number, last_seen, production_date, tag, product, status } = useSanitizedAsset(asset);
-  console.log('🚀 ~ file: modal.js ~ line 9 ~ modal ~ status', status);
 
   const variants = {
     hidden: { opacity: 0 },
@@ -16,15 +15,12 @@ export default function modal({ unselect, asset }) {
   return (
     <motion.div initial="hidden" animate="visible" variants={variants} className="z-20 absolute w-screen h-screen p-8 md:p-16" onClick={() => unselect()}>
       <div className="border-2 rounded-md w-1/3 border-gray-900 p-4 float-right">
-        <ModalTitle tag={tag.name} manufacturer={product.manufacturer} unselect={unselect} code={status.code} />
+        <ModalTitle tag={tag.name} manufacturer={product.manufacturer} unselect={unselect} code={status.code} last_seen={asset.last_seen_at} />
         <AttributeTitle title={'Product'} />
         <Attribute name={'Name'} value={product.name} />
         <Attribute name={'Code'} value={product.product_code} />
         <Attribute name={'Serial number'} value={serial_number} />
         <Attribute name={'Production date'} value={production_date} />
-        <AttributeTitle title={'Netilion'} />
-        <Attribute name={'Netilion ID'} value={id} />
-        {asset.last_seen_at ? <Attribute name={'Last seen'} value={last_seen} /> : null}
         <AttributeTitle title={'Status'} />
         <Attribute name={'Current status'} value={status.name} />
         <Attribute name={'Description'} value={status.description} />
