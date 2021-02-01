@@ -67,61 +67,77 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 2.084434279e-7, -1.5594242608490143]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.TrustSens__1_TM371.geometry}
         position={[2.15198016166687, 17.569725036621094, -14.739999771118164]}
         rotation={[0, 0, -0.0169431638304912]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={87048}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 19']}
         geometry={nodes.PMC71.geometry}
         position={[2.1196203231811523, 16.07699966430664, -10.239999771118164]}
         rotation={[-Math.PI, 1.5486574901902983, -Math.PI]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63357}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.Promag_400_5W4C25.geometry}
         position={[2.1196203231811523, 15.65999984741211, -12.479999542236328]}
         rotation={[Math.PI / 2, -0.0314980058632694, -Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={64176}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.Promass_300_8F3B25.geometry}
         position={[2.055069923400879, 11.850546836853027, -14.739999771118164]}
         rotation={[2.621770872255408, 1.5367032376745284, -1.0507261194881017]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={64177}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.FMB50.geometry}
         position={[2.201040029525757, 6.407093524932861, -7.402479648590088]}
         rotation={[-2.098472095626134, -1.096293722e-7, -Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63360}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.006']}
         geometry={nodes.FTL31.geometry}
         position={[2.5989999771118164, 11.59999942779541, -7.415002346038818]}
         rotation={[-0.1639737641428393, 0, -Math.PI / 2]}
         scale={[0.00999999884516, 0.0099999997764826, 0.00999999884516]}
+        id={76688}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.PMP21.geometry}
         position={[2.7745001316070557, 10.703038215637207, -7.418479919433594]}
         rotation={[0, 0, -Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={76689}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.001']}
         geometry={nodes.TM411.geometry}
         position={[2.2617998123168945, 9.701813697814941, -7.415002346038818]}
         rotation={[-3.083613358357506, 0.00000627987509, -Math.PI / 2]}
         scale={[0.00999999884516, 0.0099999997764826, 0.00999999884516]}
+        id={63362}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 0.007']}
@@ -158,32 +174,40 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.001']}
         geometry={nodes.FMP56.geometry}
         position={[-1.4908379316329956, 12.933000564575195, -8.226322174072266]}
         rotation={[Math.PI, -1.5606991809179265, Math.PI]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63358}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.FMR20.geometry}
         position={[0.3090455830097198, 12.769999504089355, -8.205853462219238]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63361}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.FMR62.geometry}
         position={[0.2908509373664856, 13.734000205993652, -6.60595703125]}
         rotation={[0, 1.5094316286830922, 0]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={72915}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.FTM50.geometry}
         position={[-1.5090327262878418, 12.637459754943848, -6.626425743103027]}
         rotation={[Math.PI, -1.5625605345047724, Math.PI]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={76690}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 0.001']}
@@ -199,26 +223,32 @@ export default function Model(props) {
         rotation={[Math.PI / 2, -1.192092896e-7, -Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.001']}
         geometry={nodes.tmass150.geometry}
         position={[-2.0173168182373047, 8.040873527526855, -10.341775894165039]}
         rotation={[0, 0, Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63363}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.Prosonic_Floww_B200_9B2B50.geometry}
         position={[-2.0173168182373047, 10.688873291015625, -10.341775894165039]}
         rotation={[-3.141581044773706, -1.5656503239226998, -1.5707864160521332]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63364}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.Prowirl_100_7F2C50.geometry}
         position={[-1.9656537771224976, 15.176132202148438, -13.521615982055664]}
         rotation={[Math.PI, -1.5545521754248548, Math.PI]}
         scale={[0.00999999884516, 0.0099999997764826, 0.00999999884516]}
+        id={63366}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 4']}
@@ -240,11 +270,13 @@ export default function Model(props) {
         position={[1.7899665832519531, 8.238078117370605, -4]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 1']}
         geometry={nodes.SOLID.geometry}
         position={[1.7899665832519531, 8.238078117370605, -4]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63354}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 0.001']}
@@ -253,12 +285,14 @@ export default function Model(props) {
         rotation={[0, 0, Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 1']}
         geometry={nodes.SOLID001.geometry}
         position={[1.7899665832519531, 8.238078117370605, -4.630000114440918]}
         rotation={[0, 0, Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63354}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 5']}
@@ -301,11 +335,13 @@ export default function Model(props) {
         position={[3.029966354370117, 8.038078308105469, -4.174999713897705]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 5']}
         geometry={nodes.SOLID002.geometry}
         position={[3.029966354370117, 8.038078308105469, -4.174999713897705]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63354}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 5']}
@@ -321,19 +357,23 @@ export default function Model(props) {
         rotation={[1.5803642561308882, 0.8726262401076643, 1.5583064642628282]}
         scale={[0.00999999884516, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes['RSG45-AA2AAAAAB1A1-Endress_HauserConsultAG--10-15-2020'].geometry}
         position={[3.0114097595214844, 6.186555862426758, -12.465458869934082]}
         rotation={[-Math.PI / 2, Math.PI / 6, Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={75493}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.CM82.geometry}
         position={[2.5636801719665527, 7.892312526702881, -7.485065937042236]}
         rotation={[0, 0, -1.3089972450509704]}
         scale={[0.00999999884516, 0.00999999884516, 0.0099999997764826]}
+        id={86439}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials.Material}
@@ -342,19 +382,23 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.Promag_100_5H1B40.geometry}
         position={[1.9175504446029663, 8.795729637145996, 4.786312103271484]}
         rotation={[0.0000028863302957, 1.5399781938370805, 1.5707933801043894]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={76691}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.007']}
         geometry={nodes.PMP23.geometry}
         position={[1.9310983419418335, 8.698423385620117, 2.602354049682617]}
         rotation={[-1.5666776610726698, 0.5861051210142489, 3.1341464891256563]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={76687}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 0.002']}
@@ -414,12 +458,14 @@ export default function Model(props) {
         rotation={[Math.PI, -1.509958025e-7, Math.PI]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.001']}
         geometry={nodes.tm311_AAC1AA0ABC1B1.geometry}
         position={[1.939261794090271, 11.855730056762695, 1.2863795757293701]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={76699}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 0']}
@@ -610,19 +656,23 @@ export default function Model(props) {
         rotation={[-Math.PI, 7.54979021e-8, Math.PI / 2]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.006']}
         geometry={nodes.SWA70.geometry}
         position={[2.0359580516815186, 17.00196647644043, -9.433185577392578]}
         rotation={[0, 0.0221404932335098, 0]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63355}
+        assetSelected={props.assetSelected}
       />
-      <mesh
+      <Asset
         material={materials['CAD mat 0.006']}
         geometry={nodes.SWA70001.geometry}
         position={[-1.5557446479797363, 13.904533386230469, -9.006017684936523]}
         rotation={[-Math.PI, 0.0100964623544073, -Math.PI]}
         scale={[0.0099999997764826, 0.0099999997764826, 0.0099999997764826]}
+        id={63356}
+        assetSelected={props.assetSelected}
       />
       <mesh
         material={materials['CAD mat 0.007']}

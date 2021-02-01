@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="60px" viewBox="0 0 68 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>check-function</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="check-function" fill-rule="nonzero">
+            <g id="Ebene_1">
+                <polygon id="Shape" fill="#E94C0A" points="34 60 68 0 0 0"></polygon>
+                <ellipse id="Oval" fill="#FFFFFF" cx="33.9556962" cy="16.8181818" rx="6.4556962" ry="6.81818182"></ellipse>
+                <rect id="Rectangle-path" fill="#FFFFFF" x="31.3734177" y="20.9090909" width="5.16455696" height="15.4545455"></rect>
+                <polygon id="Shape" fill="#E94C0A" points="31.3734177 11.8181818 31.3734177 12.7272727 31.3734177 16.3636364 33.9556962 18.6363636 36.5379747 16.3636364 36.5379747 12.7272727 36.5379747 11.8181818 38.2594937 9.09090909 29.6518987 9.09090909"></polygon>
+                <ellipse id="Oval" fill="#FFFFFF" cx="33.9556962" cy="36.3636364" rx="2.58227848" ry="2.72727273"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

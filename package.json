@@ -13,6 +13,7 @@
     "autoprefixer": "^10.1.0",
     "drei": "^2.2.13",
     "framer-motion": "^3.1.3",
+    "moment": "^2.29.1",
     "next": "10.0.4",
     "postcss": "^8.2.2",
     "react": "17.0.1",
@@ -21,6 +22,7 @@
     "react-spinners": "^0.10.4",
     "react-spring": "^8.0.27",
     "react-three-fiber": "^5.3.11",
+    "react-time-ago": "^6.2.2",
     "swr": "^0.4.0",
     "tailwindcss": "^2.0.2",
     "three": "^0.124.0"

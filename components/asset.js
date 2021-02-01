@@ -4,7 +4,7 @@ export default function Asset(props) {
   return (
     <>
       <mesh
-        onClick={() => {
+        onPointerUp={() => {
           assetSelected(id);
         }}
         material={material}
