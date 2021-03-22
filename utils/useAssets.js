@@ -4,8 +4,8 @@ export default function useAssets() {
   const { data, error } = useSWR('/api/assets', { refreshInterval: 10000 });
 
   return {
-    assets: data?.assets,
+    assets: data,
     isLoading: !error && !data,
-    isError: error,
+    isError: error
   };
 }

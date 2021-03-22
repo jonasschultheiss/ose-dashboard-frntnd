@@ -8,10 +8,12 @@ import Head from 'next/head';
 // import DebugStats from 'react-fps-stats';
 
 export default function Index() {
-  const { assets, isLoading, isError } = useAssets();
+  // make use of isError prop
+  // const { assets, isLoading, isError } = useAssets();
+  const { assets, isLoading } = useAssets();
   const { openModal, closeModal, open, asset } = useModal();
 
-  const assetSelected = (id) => {
+  const assetSelected = id => {
     if (!open || !isLoading) {
       openModal(filterByAssetId(assets, id));
     }
@@ -28,7 +30,7 @@ export default function Index() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header />
-      {open ? <Modal asset={asset} unselect={assetUnselected} isLoading={isLoading} /> : null}
+      {open ? <Modal asset={asset} unselect={assetUnselected} isLoading={isLoading} /> : undefined}
       {/* <DebugStats /> */}
       <Scene assetSelected={assetSelected} />
     </>

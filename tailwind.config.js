@@ -6,12 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: colors.trueGray,
-      },
-    },
+        gray: colors.trueGray
+      }
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };

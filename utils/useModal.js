@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 export default function useModal() {
   const [open, setOpen] = useState(false);
-  const [asset, setAsset] = useState(null);
+  const [asset, setAsset] = useState();
 
-  const openModal = (asset) => {
+  const openModal = asset => {
     setOpen(false);
     setAsset(asset);
     setOpen(true);
@@ -12,13 +12,13 @@ export default function useModal() {
 
   const closeModal = () => {
     setOpen(false);
-    setAsset(null);
+    setAsset();
   };
 
   return {
     openModal,
     closeModal,
     open,
-    asset,
+    asset
   };
 }
