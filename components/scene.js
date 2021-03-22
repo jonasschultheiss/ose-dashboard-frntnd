@@ -5,7 +5,7 @@ import { Canvas } from 'react-three-fiber';
 
 const Model = lazy(() => import('@components/model'));
 const OrbitControls = dynamic(
-  import('@react-three/drei').then((module) => module.OrbitControls),
+  import('@react-three/drei').then(module => module.OrbitControls),
   { ssr: false }
 );
 
@@ -16,7 +16,7 @@ export default function Scene({ assetSelected }) {
         <Lights />
         <OrbitControls />
         <group>
-          <Suspense fallback={null}>
+          <Suspense fallback={''}>
             <Model assetSelected={assetSelected} position={[0, -8, 5]} />
           </Suspense>
         </group>

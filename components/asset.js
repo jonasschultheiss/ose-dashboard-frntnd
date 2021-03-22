@@ -1,5 +1,5 @@
-export default function Asset(props) {
-  const { material, geometry, position, rotation, scale, id, assetSelected } = props;
+export default function Asset(properties) {
+  const { material, geometry, position, rotation, scale, id, assetSelected } = properties;
 
   return (
     <>

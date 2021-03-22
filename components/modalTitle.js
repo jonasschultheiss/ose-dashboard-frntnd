@@ -10,7 +10,9 @@ export default function ModalTitle({ tag, manufacturer, unselect, code, last_see
           <div className="flex flex-col ml-4">
             <p className="text-xl font-semibold">{tag}</p>
             <p className="text-md font-medium">{manufacturer}</p>
-            {last_seen ? <p className="text-md font-medium">Last seen: {moment(new Date(last_seen)).fromNow()}</p> : null}
+            {last_seen ? (
+              <p className="text-md font-medium">Last seen: {moment(new Date(last_seen)).fromNow()}</p>
+            ) : undefined}
           </div>
         </div>
       </div>

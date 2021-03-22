@@ -6,6 +6,6 @@ export default function useTagImage(id) {
   return {
     src: data?.pictures[0]?.download_href,
     isLoading: !error && !data,
-    isError: error,
+    isError: error
   };
 }
