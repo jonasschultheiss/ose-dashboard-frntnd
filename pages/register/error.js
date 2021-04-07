@@ -1,16 +1,23 @@
 import { ArrowLeftIcon, XIcon } from '@heroicons/react/solid';
+import { useAuth } from 'contexts/authContext';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 export default function Error() {
   const router = useRouter();
+  const { logout } = useAuth();
 
   useEffect(() => {
     setTimeout(() => {
       router.push('/');
     }, 15000);
   }, [router]);
+
+  const handleClick = () => {
+    logout();
+    router.push('/');
+  };
 
   return (
     <div className="flex justify-center items-center w-full h-full">
@@ -34,7 +41,11 @@ export default function Error() {
           You&apos;ll be redirected to the start page in
         </p>
         <p className="text-gray-900 font-bold text-xl">15 seconds.</p>
-        <a href="/" className="flex flex-row justify-center bg-gray-900 text-gray-100 rounded-md px-4 py-2 mt-4">
+        <a
+          href="/"
+          onClick={handleClick}
+          className="flex flex-row justify-center bg-gray-900 text-gray-100 rounded-md px-4 py-2 mt-4"
+        >
           <ArrowLeftIcon className="text-gray-100 w-6 h-6 mr-2" /> Back to start
         </a>
       </div>

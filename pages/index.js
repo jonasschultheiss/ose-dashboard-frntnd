@@ -1,8 +1,16 @@
+import { useAuth } from 'contexts/authContext';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function Index() {
   const authURL = process.env.NEXT_PUBLIC_AUTH_URL;
-
+  const router = useRouter();
+  const { isAuthenticated, user } = useAuth();
+  if (isAuthenticated && user.finishedInitialSetup) {
+    router.push('/settings/model');
+  } else if (isAuthenticated && !user.finishedInitialSetup) {
+    router.push('/register');
+  }
   return (
     <div className="p-16">
       <h1 className="text-gray-900 text-2xl pb-2 font-bold md:text-3xl">One Story Exhibit Dashboard</h1>
