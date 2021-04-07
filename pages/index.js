@@ -1,61 +1,58 @@
-import Header from '@components/header';
-import Modal from '@components/modal';
-import Scene from '@components/scene';
-import filterByAssetId from '@utils/filterByAssetId';
-import useAssets from '@utils/useAssets';
-import useModal from '@utils/useModal';
-import Head from 'next/head';
-// import DebugStats from 'react-fps-stats';
+import { useAuth } from 'contexts/authContext';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function Index() {
-  // make use of isError prop
-  // const { assets, isLoading, isError } = useAssets();
-  const { assets, isLoading } = useAssets();
-  const { openModal, closeModal, open, asset } = useModal();
-
-  const assetSelected = id => {
-    if (!open || !isLoading) {
-      openModal(filterByAssetId(assets, id));
-    }
-  };
-
-  const assetUnselected = () => {
-    closeModal();
-  };
-
+  const authURL = process.env.NEXT_PUBLIC_AUTH_URL;
+  const router = useRouter();
+  const { isAuthenticated, user } = useAuth();
+  if (isAuthenticated && user.finishedInitialSetup) {
+    router.push('/settings/model');
+  } else if (isAuthenticated && !user.finishedInitialSetup) {
+    router.push('/register');
+  }
   return (
-    <>
-      <Head>
-        <title>OSE Dashboard</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Header />
-      {open ? <Modal asset={asset} unselect={assetUnselected} isLoading={isLoading} /> : undefined}
-      {/* <DebugStats /> */}
-      <Scene assetSelected={assetSelected} />
-    </>
+    <div className="p-16">
+      <h1 className="text-gray-900 text-2xl pb-2 font-bold md:text-3xl">One Story Exhibit Dashboard</h1>
+      <p className="text-gray-900 text-lg font-medium">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum ante velit, id tempus massa
+        scelerisque at. Donec ullamcorper arcu leo, a interdum dolor maximus quis. Sed vulputate nibh et quam elementum
+        eleifend. Vestibulum ac rhoncus metus, et imperdiet justo. Quisque aliquam rhoncus dolor, sit amet bibendum
+        felis pharetra et. Aliquam imperdiet malesuada congue. Nunc ultricies justo lacus, id commodo nunc ullamcorper
+        non. Pellentesque nisl enim, cursus vitae orci ac, iaculis dapibus dui. Duis venenatis nulla eu suscipit ornare.
+        Mauris nec dignissim ex.
+      </p>
+      <div className="flex justify-items-center mt-24 items-center">
+        <div className="bg-gray-900 h-96 w-full rounded-md"></div>
+      </div>
+      <div className="mt-24 bg-gray-900 rounded-md p-16 flex flex-row justify-between">
+        <div className="w-2/4">
+          <h2 className="text-gray-100 text-2xl font-bold">Responsible for an One Story Exhibit model?</h2>
+          <h3 className="text-gray-100 text-xl font-medium">Sign in here and get your model featured</h3>
+          <p className="text-gray-100 text-md font-medium mt-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum ante velit, id tempus massa
+            scelerisque at. Donec ullamcorper arcu leo, a interdum dolor maximus quis. Sed vulputate nibh et quam
+            elementum eleifend. Vestibulum ac rhoncus metus, et imperdiet justo. Quisque aliquam rhoncus dolor, sit amet
+            bibendum felis pharetra et. Aliquam imperdiet malesuada congue. Nunc ultricies justo lacus, id commodo nunc
+            ullamcorper non. Pellentesque nisl enim, cursus vitae orci ac, iaculis dapibus dui. Duis venenatis nulla eu
+            suscipit ornare. Mauris nec dignissim ex.
+          </p>
+          <div className="flex flex-row justify-center items-center">
+            <a href={authURL} className=" text-gray-100 bg-blue-500 py-2 px-4 mt-4 font-bold text-lg rounded-md">
+              Sign in with Netilion
+            </a>
+          </div>
+        </div>
+        <div className="relative w-1/3 h-80">
+          <Image
+            src="/OSEModel.png"
+            alt="Picture of the One Story Exhibit Model in Reinach, Switzerland"
+            layout="fill"
+            objectFit="cover"
+            priority="true"
+          />
+        </div>
+      </div>
+    </div>
   );
 }
-
-// export async function getServerSideProps(context) {
-//   // ${process.env.API_BASE_URL}
-//   const res = await fetch(`https://api.iiot.endress.com/v1/instrumentations?per_page=50&include=pictures%2C%20specifications%2C%20status`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Authorization: `Basic ${process.env.API_AUTHORIZATION}`,
-//       'Api-Key': process.env.API_KEY,
-//     },
-//   });
-//   const data = await res.json();
-
-//   if (!data) {
-//     return {
-//       notFound: true,
-//     };
-//   }
-
-//   return {
-//     props: { assets: data.instrumentations },
-//   };
-// }
