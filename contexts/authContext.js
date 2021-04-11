@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
       if (payload.exp > Math.floor(Date.now() / 1000)) {
         setIsLoading(true);
         setJWT(accessToken);
+        sessionStorage.removeItem('jwt');
         baseAPI.defaults.headers.Authorization = `Bearer ${accessToken}`;
         try {
           const { data: user } = await baseAPI.get('/users/current', getBearerHeader(accessToken));
@@ -56,6 +57,9 @@ export const AuthProvider = ({ children }) => {
         } catch (error) {
           setRequestError(error);
         }
+      } else {
+        baseAPI.defaults.headers.Authorization = undefined;
+        sessionStorage.removeItem('jwt');
       }
     } else {
       baseAPI.defaults.headers.Authorization = undefined;

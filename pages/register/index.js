@@ -2,10 +2,19 @@ import Register from '@components/register';
 import RegisterError from '@components/registerError';
 import { useAuth } from 'contexts/authContext';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 
 export default function Index() {
-  const { isAuthenticated, isLoading, requestError } = useAuth();
+  const { isAuthenticated, isLoading, requestError, user } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user && user.finishedInitialSetup) {
+      router.push('/settings/model');
+    }
+  }, [router, user]);
 
   const loadingIndicator = (
     <>
