@@ -1,11 +1,27 @@
 import Register from '@components/register';
 import RegisterError from '@components/registerError';
+import RegisterUnauthorized from '@components/registerUnauthorized';
 import { useAuth } from 'contexts/authContext';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 
 export default function Index() {
-  const { isAuthenticated, isLoading, requestError } = useAuth();
+  const { isAuthenticated, isLoading, requestError, user } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user && user.finishedInitialSetup) {
+      router.push('/settings/model');
+    }
+  }, [router, user]);
+
+  const initTimedRedirect = () => {
+    setTimeout(() => {
+      router.push('/');
+    }, 15000);
+  };
 
   const loadingIndicator = (
     <>
@@ -16,9 +32,12 @@ export default function Index() {
   );
 
   let content;
-
-  if (requestError) {
+  if (requestError && requestError.message === 'Request failed with status code 401') {
+    content = <RegisterUnauthorized />;
+    initTimedRedirect();
+  } else if (requestError) {
     content = <RegisterError />;
+    initTimedRedirect();
   } else if (!isAuthenticated && isLoading) {
     content = loadingIndicator;
   } else {
