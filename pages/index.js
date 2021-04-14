@@ -1,3 +1,4 @@
+import MapChart from '@components/mapChart';
 import { useAuth } from 'contexts/authContext';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -22,8 +23,8 @@ export default function Index() {
         non. Pellentesque nisl enim, cursus vitae orci ac, iaculis dapibus dui. Duis venenatis nulla eu suscipit ornare.
         Mauris nec dignissim ex.
       </p>
-      <div className="flex justify-items-center mt-24 items-center">
-        <div className="bg-gray-900 h-96 w-full rounded-md"></div>
+      <div className="flex justify-items-center mt-24 items-center bg-gray-900 rounded-lg overflow-hidden">
+        <MapChart />
       </div>
       <div className="mt-24 bg-gray-900 rounded-md p-16 flex flex-row justify-between">
         <div className="w-2/4">

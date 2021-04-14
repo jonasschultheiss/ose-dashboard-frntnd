@@ -20,10 +20,10 @@ export default function Location() {
     const fetchModel = async () => {
       setIsLoading(true);
       try {
-        const { data: fetchedUser } = await baseAPI.get(`/users/${user.id}/model`);
-        const { model: requestedModel } = fetchedUser;
-        setModel(requestedModel);
-        const { data: requestedLocation } = await baseAPI.get(`/models/${requestedModel.id}/location`);
+        const { data: fetchedModel } = await baseAPI.get(`/users/${user.id}/model`);
+
+        setModel(fetchedModel);
+        const { data: requestedLocation } = await baseAPI.get(`/models/${fetchedModel.id}/location`);
         setSelectedLocation(requestedLocation);
         setAddress(requestedLocation.title);
         setIsLoading(false);

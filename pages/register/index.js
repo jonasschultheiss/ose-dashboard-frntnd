@@ -1,5 +1,6 @@
 import Register from '@components/register';
 import RegisterError from '@components/registerError';
+import RegisterUnauthorized from '@components/registerUnauthorized';
 import { useAuth } from 'contexts/authContext';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -16,6 +17,12 @@ export default function Index() {
     }
   }, [router, user]);
 
+  const initTimedRedirect = () => {
+    setTimeout(() => {
+      router.push('/');
+    }, 15000);
+  };
+
   const loadingIndicator = (
     <>
       <Loader className="mb-4" type="Grid" width="60" height="60" color="#171717" />
@@ -25,9 +32,12 @@ export default function Index() {
   );
 
   let content;
-
-  if (requestError) {
+  if (requestError && requestError.message === 'Request failed with status code 401') {
+    content = <RegisterUnauthorized />;
+    initTimedRedirect();
+  } else if (requestError) {
     content = <RegisterError />;
+    initTimedRedirect();
   } else if (!isAuthenticated && isLoading) {
     content = loadingIndicator;
   } else {

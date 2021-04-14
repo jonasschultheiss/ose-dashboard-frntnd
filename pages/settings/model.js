@@ -17,11 +17,11 @@ export default function Model() {
     const fetchModel = async () => {
       setIsLoading(true);
       try {
-        const { data: fetchedUser } = await baseAPI.get(`/users/${user?.id}/model`);
-        const { model: requestedModel } = fetchedUser;
-        setModel(requestedModel);
-        setName(requestedModel.name);
-        setDescription(requestedModel.description);
+        const { data: fetchedModel } = await baseAPI.get(`/users/${user?.id}/model`);
+
+        setModel(fetchedModel);
+        setName(fetchedModel.name);
+        setDescription(fetchedModel.description);
         setIsLoading(false);
       } catch (error) {
         setError(error.response.data.message);

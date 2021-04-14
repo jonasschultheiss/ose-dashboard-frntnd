@@ -1,9 +1,16 @@
 import Button from '@components/button';
 import SettingsNav from '@components/settingsNav';
 import { useAuth } from 'contexts/authContext';
+import { useEffect } from 'react';
 
 export default function SettingsLayout({ children, saveDisabled, clicked }) {
-  const { user, logout } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      logout();
+    }
+  }, [isAuthenticated, logout]);
 
   return (
     <div className="p-12">

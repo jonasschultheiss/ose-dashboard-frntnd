@@ -1,21 +1,51 @@
 import Header from '@components/header';
 import Modal from '@components/modal';
 import Scene from '@components/scene';
-import filterByAssetId from '@utils/filterByAssetId';
-import useAssets from '@utils/useAssets';
+import { baseAPI } from '@utils/api';
+import filterByLink from '@utils/filterByLink';
 import useModal from '@utils/useModal';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 // import DebugStats from 'react-fps-stats';
 
 export default function Index() {
   // make use of isError prop
   // const { assets, isLoading, isError } = useAssets();
-  const { assets, isLoading } = useAssets();
+  const [assets, setAssets] = useState([]);
+  const [model, setModel] = useState();
   const { openModal, closeModal, open, asset } = useModal();
+  const router = useRouter();
+  const { modelId } = router.query;
 
-  const assetSelected = id => {
-    if (!open || !isLoading) {
-      openModal(filterByAssetId(assets, id));
+  useEffect(() => {
+    const fetchModel = async () => {
+      const { data: requestedModel } = await baseAPI.get(`/models/${modelId}`);
+      setModel(requestedModel);
+    };
+
+    if (modelId) {
+      fetchModel();
+    }
+  }, [modelId]);
+
+  useEffect(() => {
+    const fetchAssets = async () => {
+      const { data: requestedAssets } = await baseAPI.get(`/models/${modelId}/assets`);
+      setAssets(requestedAssets);
+    };
+
+    if (modelId) {
+      fetchAssets();
+    }
+  }, [modelId]);
+
+  const assetSelected = meshName => {
+    if (!open) {
+      const selectedAsset = filterByLink(assets, meshName);
+      if (selectedAsset) {
+        openModal(selectedAsset);
+      }
     }
   };
 
@@ -34,8 +64,8 @@ export default function Index() {
           height: 100%;
         }
       `}</style>
-      <Header />
-      {open ? <Modal asset={asset} unselect={assetUnselected} isLoading={isLoading} /> : undefined}
+      <Header model={model} />
+      {open ? <Modal assetId={asset.id} unselect={assetUnselected} /> : undefined}
       {/* <DebugStats /> */}
       <Scene assetSelected={assetSelected} />
     </>
