@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['localhost', 'herokuapp.com']
+    domains: ['localhost', 'ose-dashboard-backend-staging.herokuapp.com', 'ose-dashboard-backend.herokuapp.com']
   }
 };
