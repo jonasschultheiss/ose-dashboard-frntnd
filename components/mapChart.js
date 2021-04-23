@@ -42,7 +42,16 @@ const MapChart = () => {
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map(geo => {
-              return <Geography key={geo.rsmKey} geography={geo} fill="#E4E5E6" className="focus:outline-none" />;
+              return (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  fill="#E4E5E6"
+                  stroke="#232323"
+                  strokeWidth="0.3"
+                  className="focus:outline-none"
+                />
+              );
             })
           }
         </Geographies>
