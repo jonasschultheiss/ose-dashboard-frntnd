@@ -62,6 +62,7 @@ export default function Location() {
       const { data: requestedModel } = baseAPI.patch(`/models/${model.id}`, { location: selectedLocation.id });
       setModel(requestedModel);
       setIsLoading(false);
+      setButtonDisabled(true);
     } catch (error) {
       setError(error.response.data.message);
       setIsLoading(false);
