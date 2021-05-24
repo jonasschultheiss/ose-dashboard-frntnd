@@ -55,17 +55,19 @@ export default function Model() {
   const saveSettings = async () => {
     setIsLoading(true);
     try {
-      const { data: requestedModel } = baseAPI.patch(`/models/${model.id}`, { name, description });
+      const { data: requestedModel } = await baseAPI.patch(`/models/${model.id}`, { name, description });
       setModel(requestedModel);
+      setShouldButtonBeDisabled(true);
       setIsLoading(false);
     } catch (error) {
-      setError(error.response.data.message);
       setIsLoading(false);
+      setError(error.response.data.message);
+      setShouldButtonBeDisabled(true);
     }
   };
 
   return (
-    <SettingsLayout saveDisabled={shouldButtonBeDisabled} clicked={saveSettings}>
+    <SettingsLayout modelName={model && model.name} saveDisabled={shouldButtonBeDisabled} clicked={saveSettings}>
       {error ? <p className="font-semibold text-red-800 mt-4">{error}</p> : undefined}
       <InputField
         label="Name"

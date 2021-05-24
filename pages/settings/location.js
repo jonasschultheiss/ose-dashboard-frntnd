@@ -59,7 +59,7 @@ export default function Location() {
   const saveSettings = async () => {
     setIsLoading(true);
     try {
-      const { data: requestedModel } = baseAPI.patch(`/models/${model.id}`, { location: selectedLocation.id });
+      const { data: requestedModel } = await baseAPI.patch(`/models/${model.id}`, { location: selectedLocation.id });
       setModel(requestedModel);
       setIsLoading(false);
       setButtonDisabled(true);
@@ -70,7 +70,7 @@ export default function Location() {
   };
 
   return (
-    <SettingsLayout saveDisabled={buttonDisabled} clicked={saveSettings}>
+    <SettingsLayout modelName={model && model.name} saveDisabled={buttonDisabled} clicked={saveSettings}>
       <div className="relative w-full h-48 mb-2">
         <Image
           src={imageUrl}

@@ -59,7 +59,7 @@ export default function Asset() {
   };
 
   return (
-    <SettingsLayout saveDisabled={!changes.size} clicked={saveChanges}>
+    <SettingsLayout modelName={model && model.name} saveDisabled={!changes.size} clicked={saveChanges}>
       {error && <p className="font-semibold text-red-800 mt-4">{error}</p>}
       <div className="flex flex-col ">
         {assets &&
