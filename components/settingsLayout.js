@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 export default function SettingsLayout({ children, saveDisabled, clicked, modelName, resetRequested }) {
   const { isAuthenticated, logout } = useAuth();
   const router = useRouter();
-  console.log(router.asPath);
 
   useEffect(() => {
     if (!isAuthenticated) {
