@@ -27,12 +27,19 @@ export default function Register() {
   };
 
   let content;
-  if (currentStage === stages[0]) {
-    content = <RegisterSignIn done={handleCompletedSignIn} />;
-  } else if (currentStage === stages[1]) {
-    content = <RegisterAddModel done={handleAddedModel} />;
-  } else if (currentStage === stages[2]) {
-    content = <RegisterLinkAssets done={handleLinkedModel} model={model} />;
+  switch (currentStage) {
+    case stages[0]: {
+      content = <RegisterSignIn done={handleCompletedSignIn} />;
+      break;
+    }
+    case stages[1]: {
+      content = <RegisterAddModel done={handleAddedModel} />;
+      break;
+    }
+    case stages[2]: {
+      content = <RegisterLinkAssets done={handleLinkedModel} model={model} />;
+      break;
+    }
   }
 
   return (

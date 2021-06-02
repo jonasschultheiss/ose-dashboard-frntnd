@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/solid';
 
 export default function Button({ children, fullWidth, clicked, arrowLeft, arrowRight, disabled }) {
-  let classes = 'flex flex-row justify-center bg-gray-900 text-gray-100 rounded-md px-4 py-2 mt-4 focus:outline-none';
+  let classes = 'flex flex-row justify-center bg-gray-900 text-gray-100 rounded-md px-4 py-2 mt-2 focus:outline-none';
   if (fullWidth) {
     classes += ' w-full';
   }
