@@ -11,7 +11,7 @@ module.exports = {
     node: true,
     es6: true
   },
-  plugins: ['simple-import-sort'],
+  plugins: ['simple-import-sort', 'tailwindcss'],
   settings: {
     react: {
       version: 'detect'
@@ -25,7 +25,8 @@ module.exports = {
     'plugin:sonarjs/recommended',
     'plugin:unicorn/recommended',
     'plugin:security/recommended',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
+    'plugin:tailwindcss/recommended'
   ],
   rules: {
     'max-len': [

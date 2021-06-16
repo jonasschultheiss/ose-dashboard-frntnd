@@ -12,9 +12,9 @@ export default function Button({ children, fullWidth, clicked, arrowLeft, arrowR
 
   return (
     <button onClick={() => clicked()} disabled={disabled} className={classes}>
-      {arrowLeft && <ArrowLeftIcon className="text-gray-100 w-6 h-6 mr-2" />}
+      {arrowLeft && <ArrowLeftIcon className="mr-2 w-6 h-6 text-gray-100" />}
       <span className="text-lg font-semibold">{children}</span>
-      {arrowRight && <ArrowRightIcon className="text-gray-100 w-6 h-6 ml-2" />}
+      {arrowRight && <ArrowRightIcon className="ml-2 w-6 h-6 text-gray-100" />}
     </button>
   );
 }
