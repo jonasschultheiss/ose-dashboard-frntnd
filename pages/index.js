@@ -3,7 +3,6 @@ import { useAuth } from 'contexts/authContext';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 const ReactTooltip = dynamic(() => import('react-tooltip'), {
   ssr: false
@@ -13,7 +12,6 @@ export default function Index() {
   const authURL = process.env.NEXT_PUBLIC_AUTH_URL;
   const router = useRouter();
   const { isAuthenticated, user } = useAuth();
-  const [tooltipContent, setTooltipContent] = useState('');
 
   if (isAuthenticated && user.finishedInitialSetup) {
     router.push('/settings/model');
@@ -35,7 +33,7 @@ export default function Index() {
       </p>
       <div className="overflow-hidden items-center mt-24 bg-gray-900 rounded shadow ">
         <ReactTooltip />
-        <MapChart setTooltipContent={setTooltipContent} />
+        <MapChart />
       </div>
       <div className="flex flex-row justify-between p-16 mt-24 bg-gray-900 rounded shadow">
         <div className="w-2/4">

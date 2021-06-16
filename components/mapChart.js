@@ -6,7 +6,7 @@ import { ComposableMap, Geographies, Geography, Graticule, Marker, Sphere, Zooma
 
 const geoUrl = 'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
 
-const MapChart = ({ setTooltipContent }) => {
+const MapChart = () => {
   const [models, setModels] = useState([]);
   const router = useRouter();
   const initialPosition = { coordinates: [0, 30], zoom: 1 };
@@ -99,8 +99,6 @@ const MapChart = ({ setTooltipContent }) => {
                   onClick={() => handleModelSelection(model)}
                   key={index}
                   coordinates={[model.location.lng, model.location.lat]}
-                  onMouseLeave={() => setTooltipContent('')}
-                  onMouseEnter={() => setTooltipContent(model.name)}
                 >
                   <g fill="#FF5533" strokeLinecap="round" strokeLinejoin="round">
                     <circle r={5 - position.zoom} />
