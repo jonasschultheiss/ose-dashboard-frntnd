@@ -1,11 +1,11 @@
 export default function Asset(properties) {
-  const { material, geometry, position, rotation, scale, id, assetSelected } = properties;
+  const { material, geometry, position, rotation, scale, meshName, assetSelected } = properties;
 
   return (
     <>
       <mesh
         onPointerUp={() => {
-          assetSelected(id);
+          assetSelected(meshName);
         }}
         material={material}
         geometry={geometry}
