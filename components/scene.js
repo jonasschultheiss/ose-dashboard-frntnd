@@ -11,13 +11,13 @@ const OrbitControls = dynamic(
 
 export default function Scene({ assetSelected }) {
   return (
-    <div className="h-screen w-screen absolute">
-      <Canvas colorManagement shadowMap camera={{ position: [15, 15, 17], fov: 70 }}>
+    <div className="absolute w-screen h-screen">
+      <Canvas colorManagement shadowMap camera={{ position: [2, 1.5, 1], fov: 70 }}>
         <Lights />
         <OrbitControls />
         <group>
           <Suspense fallback={''}>
-            <Model assetSelected={assetSelected} position={[0, -8, 5]} />
+            <Model assetSelected={assetSelected} position={[0, -1, 0.3]} />
           </Suspense>
         </group>
       </Canvas>
